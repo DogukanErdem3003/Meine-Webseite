@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Meine erste Webseite</title>
+
+    <style>
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 20px;
+
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.navbar a {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.navbar a:hover {
+    opacity: 0.7;
+}
+
+/* Abstand wegen fixed navbar */
+.container {
+    margin-top: 90px;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 12px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background: linear-gradient(
+        180deg,
+        #1a1a1d,
+        #121214
+    );
+
+    color: #f2f2f2;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, var(--scroll-dark, 0));
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes slowShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 50% 60%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+	header,
+	.container {
+    	position: relative;
+    	z-index: 1;
+}
+
+	header {
+    		text-align: center;
+		padding-top: 80px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+
+    position: relative;
+    z-index: 1;
+}
+
+p, h1, h2, h3, li {
+    color: #f2f2f2;
+    letter-spacing: 0.3px;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: block;
+}
+
+ul {
+    color: #f1f1f1;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 18px;
+    background: rgba(255,255,255,0.25);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.05);
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+    </style>
+</head>
+
+<script>
+window.addEventListener("scroll", function () {
+    let scrollY = window.scrollY;
+
+    // mehr Scroll = dunkler Overlay
+    let opacity = Math.min(scrollY / 800, 0.6);
+
+    document.body.style.setProperty(
+        "--scroll-dark",
+        opacity
+    );
+});
+</script>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">Dogukan</div>
+
+    <div class="nav-links">
+        <a href="#about">Über mich</a>
+        <a href="#bodybuilding">Bodybuilding</a>
+        <a href="#fotografie">Fotografie</a>
+        <a href="#kunst">Kunst</a>
+    </div>
+</nav>
+
+<header>
+    <h1>Hi, ich bin Dogukan !</h1>
+    <p>Willkommen auf meiner ersten eigenen Website </p>
+</header>
+
+<div class="container">
+    <h2>Über mich</h2>
+    <p>Ich lerne gerade Webentwicklung und baue meine erste eigene Website.</p>
+
+    <h2>Meine Ziele</h2>
+    <ul>
+        <li>HTML lernen</li>
+        <li>CSS lernen</li>
+        <li>Eigene Projekte bauen</li>
+    </ul>
+</div>
+
+<div class="container">
+
+    <section id="about">
+        <h2>Über mich</h2>
+        <p>
+            Ich lerne gerade Webentwicklung und baue meine ersten eigenen Projekte.
+            Nebenbei habe ich viele kreative und sportliche Interessen.
+        </p>
+    </section>
+
+    <section id="bodybuilding">
+        <h2>🏋️ Bodybuilding</h2>
+        <p>
+            Bodybuilding ist für mich mehr als nur Sport. Dabei arbeite ich an Kraft,
+            Disziplin und persönlicher Weiterentwicklung.
+            Es hilft mir, mental stark und fokussiert zu bleiben.
+        </p>
+
+        <div class="gallery">
+            <img src="Sport1.jpeg" width="300" alt="Bodybuilding Training">
+        </div>
+    </section>
+
+    <section id="fotografie">
+        <h2>📸 Tierfotografie</h2>
+        <p>
+            Die Tierfotografie verbindet meine Liebe zur Natur mit Kreativität.
+            Ich versuche besondere Momente von Tieren festzuhalten und ihre Persönlichkeit einzufangen.
+        </p>
+
+        <div class="gallery">
+            <img src="Fotografie1.jpeg" width="300" alt="Salzwasserfische">
+            <img src="Fotografie2.jpeg" width="300" alt="Krokodil">
+            <img src="Fotografie3.jpeg" width="300" alt="Qualle">
+            <img src="Fotografie4.jpeg" width="300" alt="Affe Drill">
+            <img src="Fotografie5.jpeg" width="300" alt="Süßwasserfische">
+            <img src="Fotografie6.jpeg" width="300" alt="Igelfisch">
+        </div>
+    </section>
+
+    <section id="friend">
+        <h2>❤️ Meine Freundin</h2>
+        <p>
+            Meine Freundin ist ein sehr wichtiger Mensch in meinem Leben.
+            Sie unterstützt mich, motiviert mich und bringt viel Freude in meinen Alltag.
+        </p>
+
+        <div class="gallery">
+            <img src="Seelenverwandte.jpeg" width="300" alt="Gemeinsames Foto mit meiner Freundin">
+        </div>
+    </section>
+
+    <section id="kunst">
+        <h2>🎨 Kunst & Zeichnen</h2>
+        <p>
+            Ich male und zeichne gerne Kunstwerke, um meine Kreativität auszudrücken.
+            Dabei probiere ich immer neue Stile und Ideen aus und lege großen Wert auf Details.
+        </p>
+
+        <div class="gallery">
+            <img src="kunstwerk1.jpeg" width="300" alt="Kunstwerk 1">
+            <img src="kunstwerk2.jpeg" width="300" alt="Kunstwerk 2">
+            <img src="kunstwerk3.jpeg" width="300" alt="Kunstwerk 3">
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
